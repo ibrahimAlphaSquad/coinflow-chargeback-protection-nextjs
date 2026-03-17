@@ -1,0 +1,23 @@
+{
+  "name": "coinflow-chargeback-protection-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@coinflowlabs/react": "latest",
+    "@solana/web3.js": "^1.98.4",
+    "caniuse-lite": "^1.0.30001780",
+    "next": "^16.0.10",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-next": "latest"
+  }
+}
