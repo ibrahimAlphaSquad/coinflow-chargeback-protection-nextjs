@@ -23,10 +23,17 @@ export default function CoinflowProtection() {
 
   // Skip when disabled (e.g. no valid merchant ID yet) or placeholder — prevents 404 / "Not Found" JSON errors
   if (!merchantId) {
+    console.log('No merchant ID found');
     return null;
   }
 
   const coinflowEnv = process.env.NEXT_PUBLIC_SANDBOX === 'true' ? 'sandbox' : 'prod';
+  console.log("Coinflow Protection is active");
 
-  return <CoinflowPurchaseProtection merchantId={merchantId} coinflowEnv={coinflowEnv} />;
+  return (
+    <CoinflowPurchaseProtection
+      merchantId={merchantId}
+      coinflowEnv={coinflowEnv}
+    />
+  );
 }

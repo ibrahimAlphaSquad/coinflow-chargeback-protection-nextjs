@@ -73,12 +73,15 @@ export async function POST(request) {
     );
   }
 
-  // 2. Create customer
+  // 2. Create customer — Authorization + x-coinflow-auth-wallet required
   const createRes = await fetch(`${baseUrl}/api/customer`, {
     method: 'POST',
     headers: buildHeaders({
+      Authorization: apiKey,
       'x-coinflow-auth-session-key': sessionKey,
       'x-coinflow-auth-user-id': userId,
+      'x-coinflow-auth-wallet': pubkey,
+      'x-coinflow-auth-blockchain': 'solana',
     }),
     body: JSON.stringify({ email, customerInfo: { firstName: 'Demo', lastName: 'User' } }),
   });
