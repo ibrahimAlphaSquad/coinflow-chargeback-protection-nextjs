@@ -17,10 +17,16 @@ import { CoinflowPurchaseProtection } from '@coinflowlabs/react';
  *   // Place once at the top of your root layout:
  *   <CoinflowProtection />
  */
+
 export default function CoinflowProtection() {
-  return (
-    <CoinflowPurchaseProtection
-      merchantId={process.env.NEXT_PUBLIC_MERCHANT_ID}
-    />
-  );
+  const merchantId = process.env.NEXT_PUBLIC_MERCHANT_ID;
+
+  // Skip when disabled (e.g. no valid merchant ID yet) or placeholder — prevents 404 / "Not Found" JSON errors
+  if (!merchantId) {
+    return null;
+  }
+
+  const coinflowEnv = process.env.NEXT_PUBLIC_SANDBOX === 'true' ? 'sandbox' : 'prod';
+
+  return <CoinflowPurchaseProtection merchantId={merchantId} coinflowEnv={coinflowEnv} />;
 }
