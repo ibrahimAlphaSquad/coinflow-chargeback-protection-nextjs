@@ -1,7 +1,7 @@
 import './globals.css';
 import CoinflowProtection from '@/components/CoinflowProtection';
 import Nav from '@/components/Nav';
-// import NSureScript from '@/components/NSureScript';
+import NSureScript from '@/components/NSureScript';
 
 export const metadata = {
   title: 'Coinflow Chargeback Protection',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* <NSureScript /> */}
+        <NSureScript />
         <CoinflowProtection />
         <Nav />
         {children}

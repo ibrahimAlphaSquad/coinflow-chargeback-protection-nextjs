@@ -11,12 +11,20 @@ export default function Nav() {
       <Link href="/" style={styles.brand}>
         My Store
       </Link>
-      <Link
-        href={pathname === '/checkout' ? '/' : '/checkout'}
-        style={styles.navBtn}
-      >
-        {pathname === '/checkout' ? '← Back to Home' : 'Go to Checkout →'}
-      </Link>
+      <div style={styles.links}>
+        <Link href="/deposit" style={pathname === '/deposit' ? { ...styles.navBtn, ...styles.active } : styles.navBtn}>
+          Deposit
+        </Link>
+        <Link href="/withdraw" style={pathname === '/withdraw' ? { ...styles.navBtn, ...styles.active } : styles.navBtn}>
+          Withdraw
+        </Link>
+        <Link
+          href={pathname === '/checkout' ? '/' : '/checkout'}
+          style={pathname === '/checkout' ? { ...styles.navBtn, ...styles.active } : styles.navBtn}
+        >
+          {pathname === '/checkout' ? '← Home' : 'Checkout'}
+        </Link>
+      </div>
     </nav>
   );
 }
@@ -36,6 +44,11 @@ const styles = {
     textDecoration: 'none',
     color: 'inherit',
   },
+  links: {
+    display: 'flex',
+    gap: 12,
+    alignItems: 'center',
+  },
   navBtn: {
     padding: '8px 18px',
     border: '1px solid #d1d5db',
@@ -45,5 +58,9 @@ const styles = {
     fontSize: 14,
     textDecoration: 'none',
     color: 'inherit',
+  },
+  active: {
+    background: '#f1f5f9',
+    borderColor: '#94a3b8',
   },
 };
